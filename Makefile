@@ -1,6 +1,6 @@
 CC		= $(CROSS_COMPILE)cc
 CCLD		= $(CC)
-CCAS		= cc
+CCAS		= $(CC)
 ARCH		= $(shell uname -m)
 
 BATCHES		= 512
