@@ -80,6 +80,7 @@ latency_\name\()_\msb\()_\lsb:
 	.rept		BATCHSIZE
 	\opcode		$a0,		$a0,		\msb,		\lsb
 	.endr
+	ret
 	.endm
 
 	latency_str	bstrins_d,	bstrins.d,	31,		0
