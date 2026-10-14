@@ -82,14 +82,14 @@ latency_\name\()_\msb\()_\lsb:
 	.endr
 	.endm
 
-	latency_str	bstrins_d,	bstrins.d,	32,		0
-	latency_str	bstrins_d,	bstrins.d,	48,		16
-	latency_str	bstrins_w	bstrins.w,	16,		0
-	latency_str	bstrins_w	bstrins.w	24,		8
-	latency_str	bstrpick_d,	bstrpick.d,	32,		0
-	latency_str	bstrpick_d,	bstrpick.d,	48,		16
-	latency_str	bstrpick_w,	bstrpick.w,	16,		0
-	latency_str	bstrpick_w,	bstrpick.w,	24,		8
+	latency_str	bstrins_d,	bstrins.d,	31,		0
+	latency_str	bstrins_d,	bstrins.d,	47,		16
+	latency_str	bstrins_w	bstrins.w,	15,		0
+	latency_str	bstrins_w	bstrins.w	23,		8
+	latency_str	bstrpick_d,	bstrpick.d,	31,		0
+	latency_str	bstrpick_d,	bstrpick.d,	47,		16
+	latency_str	bstrpick_w,	bstrpick.w,	15,		0
+	latency_str	bstrpick_w,	bstrpick.w,	23,		8
 
 	.global		latency_maskeqz
 latency_maskeqz:
@@ -271,14 +271,14 @@ thrput_\name\()_\msb\()_\lsb:
 	ret
 	.endm
 
-	thrput_str	bstrins_d,	bstrins.d,	32,		0
-	thrput_str	bstrins_d,	bstrins.d,	48,		16
-	thrput_str	bstrins_w,	bstrins.w,	16,		0
-	thrput_str	bstrins_w,	bstrins.w,	24,		8
-	thrput_str	bstrpick_d,	bstrpick.d,	32,		0
-	thrput_str	bstrpick_d,	bstrpick.d,	48,		16
-	thrput_str	bstrpick_w,	bstrpick.w,	16,		0
-	thrput_str	bstrpick_w,	bstrpick.w,	24,		8
+	thrput_str	bstrins_d,	bstrins.d,	31,		0
+	thrput_str	bstrins_d,	bstrins.d,	47,		16
+	thrput_str	bstrins_w,	bstrins.w,	15,		0
+	thrput_str	bstrins_w,	bstrins.w,	23,		8
+	thrput_str	bstrpick_d,	bstrpick.d,	31,		0
+	thrput_str	bstrpick_d,	bstrpick.d,	47,		16
+	thrput_str	bstrpick_w,	bstrpick.w,	15,		0
+	thrput_str	bstrpick_w,	bstrpick.w,	23,		8
 
 	.global		thrput_maskeqz
 thrput_maskeqz:
