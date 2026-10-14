@@ -99,6 +99,14 @@ latency_maskeqz:
 	.endr
 	ret
 
+	.global		latency_div_d_add
+latency_div_d_add:
+	.rept		BATCHSIZE
+	div.d		$a0,		$a0,		$a1
+	add.d		$a0,		$a0,		$a2
+	.endr
+	ret
+
 /*	Throughput	*/
 
 	.macro		thrput_3reg	name,		opcode
@@ -292,6 +300,20 @@ thrput_maskeqz:
 	maskeqz		$t5,		$s5,		$a5
 	maskeqz		$t6,		$s6,		$a6
 	maskeqz		$t7,		$s7,		$a7
+	.endr
+	ret
+
+	.global		thrput_div_d
+thrput_div_d:
+	.rept		BATCHSIZE / 8
+	div.d		$t0,		$a0,		$a1
+	div.d		$t1,		$a0,		$a1
+	div.d		$t2,		$a0,		$a1
+	div.d		$t3,		$a0,		$a1
+	div.d		$t4,		$a0,		$a1
+	div.d		$t5,		$a0,		$a1
+	div.d		$t6,		$a0,		$a1
+	div.d		$t7,		$a0,		$a1
 	.endr
 	ret
 

@@ -83,6 +83,7 @@ void latency_crc_wbw(void);
 void latency_crc_whw(void);
 void latency_crc_www(void);
 void latency_crc_wdw(void);
+void latency_div_d_add(long int dividend, long int divisor, long int diff);
 
 void thrput_add_d(void);
 void thrput_add_w(void);
@@ -120,6 +121,7 @@ void thrput_crc_wbw(void);
 void thrput_crc_whw(void);
 void thrput_crc_www(void);
 void thrput_crc_wdw(void);
+void thrput_div_d(long a0, long a1);
 
 void thrput_nop(void);
 
@@ -178,6 +180,24 @@ main(int argc, const char *argv[])
 	dotest("crc.w.w.w latency", latency_crc_www);
 	dotest("crc.w.d.w latency", latency_crc_wdw);
 
+	for (int i = 0; i < 64; i += 8) {
+		long dividend = 1ULL << i;
+
+		/*
+		 * 16 > 3 * 3 so we could always verify against the most common
+		 * cases of early termination, where dividend is less than
+		 * divisor.
+		 */
+		for (long divisor = 1; divisor < dividend * 16; divisor *= 3) {
+			char msg[256];
+			snprintf(msg, 256, "div.d %ld %ld & add latency",
+				 dividend, divisor);
+
+			dotest(msg, latency_div_d_add, dividend, divisor,
+			       dividend - dividend / divisor);
+		}
+	}
+
 	dotest("add.d throughput", thrput_add_d);
 	dotest("add.w throughput", thrput_add_w);
 	dotest("mul.d throughput", thrput_mul_d);
@@ -215,6 +235,18 @@ main(int argc, const char *argv[])
 	dotest("crc.w.h.w throughput", thrput_crc_whw);
 	dotest("crc.w.w.w throughput", thrput_crc_www);
 	dotest("crc.w.d.w throughput", thrput_crc_wdw);
+
+	for (int i = 0; i < 64; i += 8) {
+		long dividend = 1ULL << i;
+
+		for (long divisor = 1; divisor < dividend * 16; divisor *= 3) {
+			char msg[256];
+			snprintf(msg, 256, "div.d %ld %ld throughput",
+				 dividend, divisor);
+
+			dotest(msg, thrput_div_d, dividend, divisor);
+		}
+	}
 
 	dotest("nop throughput", thrput_nop);
 
