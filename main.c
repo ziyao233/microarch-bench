@@ -10,7 +10,6 @@
 #define DO_PRAGMA(x)	_DO_PRAGMA(x)
 
 unsigned long batches, frequency, warmupBatches;
-unsigned long tmp;
 
 static void
 item_begin(struct timespec *ts1)
