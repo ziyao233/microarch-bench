@@ -258,15 +258,6 @@ thrput_bytepick_w:
 	.global		thrput_\name\()_\msb\()_\lsb
 thrput_\name\()_\msb\()_\lsb:
 	.rept		BATCHSIZE / 16
-	\opcode		$t0,		$a0,		\msb,		\lsb
-	\opcode		$t1,		$a1,		\msb,		\lsb
-	\opcode		$t2,		$a2,		\msb,		\lsb
-	\opcode		$t3,		$a3,		\msb,		\lsb
-	\opcode		$t4,		$a4,		\msb,		\lsb
-	\opcode		$t5,		$a5,		\msb,		\lsb
-	\opcode		$t6,		$a6,		\msb,		\lsb
-	\opcode		$t7,		$a7,		\msb,		\lsb
-
 	\opcode		$t0,		$s0,		\msb,		\lsb
 	\opcode		$t1,		$s1,		\msb,		\lsb
 	\opcode		$t2,		$s2,		\msb,		\lsb
@@ -275,6 +266,15 @@ thrput_\name\()_\msb\()_\lsb:
 	\opcode		$t5,		$s5,		\msb,		\lsb
 	\opcode		$t6,		$s6,		\msb,		\lsb
 	\opcode		$t7,		$s7,		\msb,		\lsb
+
+	\opcode		$a0,		$s0,		\msb,		\lsb
+	\opcode		$a1,		$s1,		\msb,		\lsb
+	\opcode		$a2,		$s2,		\msb,		\lsb
+	\opcode		$a3,		$s3,		\msb,		\lsb
+	\opcode		$a4,		$s4,		\msb,		\lsb
+	\opcode		$a5,		$s5,		\msb,		\lsb
+	\opcode		$a6,		$s6,		\msb,		\lsb
+	\opcode		$a7,		$s7,		\msb,		\lsb
 	.endr
 
 	ret
